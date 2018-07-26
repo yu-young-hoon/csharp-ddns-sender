@@ -1,0 +1,3 @@
+﻿getUser: http://ddns.dnszi.com/get.html?debug=ok
+setUser: http://ddns.dnszi.com/set.html?debug=ok
+authUser: https://dnszi.com/ddns/auth.html?debug=ok

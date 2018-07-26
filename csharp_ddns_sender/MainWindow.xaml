@@ -1,0 +1,68 @@
+﻿<Window x:Class="csharp_ddns_sender.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:csharp_ddns_sender"
+        mc:Ignorable="d"
+        Title="DNSZI Setting" Height="550" Width="545" Icon="icon.ico">
+    <Grid Name="MainGrid">
+        <StackPanel Name="LoginPanel" Orientation="Horizontal" Height="30" VerticalAlignment="Top">
+            <TextBlock VerticalAlignment="Center">
+                User
+            </TextBlock>
+            <TextBox Width="100" Height="20" Text="{Binding User, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+            <TextBlock Margin="20,0,0,0" VerticalAlignment="Center">
+                Auth Code
+            </TextBlock>
+            <TextBox Name="Auth" Width="100" Height="20" Text="{Binding Auth, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Button Name="LoginButton"  Click="LoginButtonClick" Width="40" Height="20" Margin="30,0,0,0">로그인</Button>
+            <TextBlock Name="LoginText" Width="120" Height="15" Margin="10,0,0,0" LineHeight="10" FontSize="10">로그인 되지 않았습니다.</TextBlock>
+        </StackPanel>
+        <Grid Name="OriginPanel" IsEnabled="False">
+            <Button Name="ChoiceButton" 
+                    Click="ChoiceButtonClick" Margin="0,40,0,0" Width="40" Height="30" 
+                    HorizontalAlignment="Center" VerticalAlignment="Top">
+                →
+            </Button>
+            <Button Name="UnChoiceButton" 
+                    Click="UnChoiceButtonClick" Margin="0,80,0,0" Width="40" Height="30" 
+                    HorizontalAlignment="Center" VerticalAlignment="Top">
+                ←
+            </Button>
+            <Button Name="StartButton" 
+                    Click="StartButtonClick" Margin="0,120,0,0" Width="40" Height="30" 
+                    HorizontalAlignment="Center" VerticalAlignment="Top">
+                시작
+            </Button>
+            <Grid Margin="0,30,0,320">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ListView Margin="10, 10, 30, 0" Grid.Column="0"  Name="AllOrigin">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="선택X"  DisplayMemberBinding="{Binding Origin}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <ListView Margin="30, 10, 10, 0" Grid.Column="1" Name="ChoiceOrigin">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="선택O"  DisplayMemberBinding="{Binding Origin}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Grid>
+        <ListView Margin="10" Height="300" VerticalAlignment="Bottom" Name="LogList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Log" Width="360" DisplayMemberBinding="{Binding Log}" />
+                    <GridViewColumn Header="Time" Width="130" DisplayMemberBinding="{Binding Time}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
