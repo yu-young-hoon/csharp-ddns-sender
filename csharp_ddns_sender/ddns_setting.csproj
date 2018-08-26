@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Control\ItemProperty.cs" />
     <Compile Include="Control\Logger.cs" />
     <Compile Include="Control\Sender.cs" />
     <Compile Include="Control\YamlProperty.cs" />
